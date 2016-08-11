@@ -24,22 +24,21 @@
       <a-plane src="#paper" scale="4.75 4 4" position=".2 2 0.7"></a-plane>
       
       <!-- Page -->
-      <a-entity id="page" bmfont-text="text: THE Campion family seem to have been both gentlefolk and yeomen, and to have been widely scattered over the land: in Northamptonshire, Warwickshire, Essex, Sussex, and Devon. Nothing is definitely known, at present, as to which branch of the Campion family the Blessed Edmund belonged. Unlike many of the martyrs of Tudor and Stuart times, he was what is called a “born” Catholic: in more accurate phrase, a born heathen, as we all are! but baptized in his parents’ religion soon after his birth in London, on the Feast of St. Paul the Apostle, January 25, in the year 1540, New Style. ; width: 800" position="-1.8 0.8 1"></a-entity>
+      <a-entity id="page" bmfont-text="text: Edmund Campion, senior, was a book-seller, evidently in good standing, but not well to do. Some rich London guildsmen (probably of the Grocers’ Company, for it was they who maintained him later), befriended the promising little boy at just the right moment, when his father was reluctantly going to apprentice him to a trade and he was sent, at their joint expense, to a good Grammar School. Afterwards, under the same patrons, he entered Christ Hospital, then lately set up in Newgate Street (out of confiscated Franciscan funds and the generosity of Londoners), ; width: 800" position="-1.8 0.8 1"></a-entity>
 
       <!-- Page Controls -->
       <a-image id="prevButton" src="#prev" transparent="true" look-at="#player" scale="0.5 0.5 0.5" position="-2.4 2 1">
-        <a-animation attribute="rotation" begin="getpreviouspage" repeat="3" to="0 0 180"></a-animation>
+        <a-animation attribute="rotation" begin="click" repeat="3" to="0 0 180"></a-animation>
       </a-image>
       <a-image id="nextButton" src="#next" transparent="true" look-at="#player" scale="0.5 0.5 0.5" position="2.7 2 1">
-        <a-animation attribute="rotation" begin="getnextpage" repeat="3" to="0 360 0"></a-animation>
+        <a-animation attribute="rotation" begin="click" repeat="3" to="0 360 0"></a-animation>
       </a-image>
 
       <!-- Camera and Cursor -->
       <a-camera id="player" position="0 1.8 3.75" >
-        <a-cursor cursor="fuse: true; maxDistance: 30; timeout: 500" 
+        <a-cursor cursor="fuse: false; maxDistance: 30; timeout: 500" 
                   color="#2E3A87"
                   material="color: white; shader: flat">
-          <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
         </a-cursor>
       </a-camera>
     </a-scene>
