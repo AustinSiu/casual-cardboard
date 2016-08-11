@@ -6,13 +6,6 @@
     <meta name="description" content="Hello, World! - A-Frame">
     <script src="https://aframe.io/releases/0.2.0/aframe.min.js"></script>
     <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
-        <!-- Where to put this? -->
-    <script>
-      var page1 = "THE Campion family seem to have been both gentlefolk and yeomen, and to have been widely scattered over the land: in Northamptonshire, Warwickshire, Essex, Sussex, and Devon. Nothing is definitely known, at present, as to which branch of the Campion family the Blessed Edmund belonged. "
-var page2 = "Unlike many of the martyrs of Tudor and Stuart times, he was what is called a “born” Catholic: in more accurate phrase, a born heathen, as we all are! but baptized in his parents’ religion soon after his birth in London, on the Feast of St. Paul the Apostle, January 25, in the year 1540, New Style."
-
-var current = "1"
-    </script>
 
   </head>
   <body>
@@ -21,23 +14,17 @@ var current = "1"
       <a-assets>
         <img id="next" src="/resources/nextIcon.png">
         <img id="prev" src="/resources/prevIcon.png">
+        <img id="landscape" src="/resources/puydesancy.jpg">
+        <img id="paper" src="/resources/paper.jpg">
       </a-assets>
 
-      <!-- Intro -->
-      <a-box position="-1 0.5 0" rotation="0 45 0" width="1" height="1" depth="1" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -2" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 0" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane rotation="-90 0 0" position="0 0 -1" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
+      <a-sky src="#landscape" rotation="0 -70 0"></a-sky>
 
-      <!-- Load Input Text -->
-      <!-- todo not what i want -->
-      <input text="file" id="input">
-
+      <!-- Paper background -->
+      <a-plane src="#paper" scale="4.75 4 4" position=".2 2 0.7"></a-plane>
+      
       <!-- Page -->
-      <a-entity id="page" bmfont-text="text: ; width: 800" position="-1.8 0.8 1">
-        <a-sound src="src: ; autoplay: false; on: getnextpage"></a-sound>
-      </a-entity>
+      <a-entity id="page" bmfont-text="text: THE Campion family seem to have been both gentlefolk and yeomen, and to have been widely scattered over the land: in Northamptonshire, Warwickshire, Essex, Sussex, and Devon. Nothing is definitely known, at present, as to which branch of the Campion family the Blessed Edmund belonged. Unlike many of the martyrs of Tudor and Stuart times, he was what is called a “born” Catholic: in more accurate phrase, a born heathen, as we all are! but baptized in his parents’ religion soon after his birth in London, on the Feast of St. Paul the Apostle, January 25, in the year 1540, New Style. ; width: 800" position="-1.8 0.8 1"></a-entity>
 
       <!-- Page Controls -->
       <a-image id="prevButton" src="#prev" transparent="true" look-at="#player" scale="0.5 0.5 0.5" position="-2.4 2 1">
@@ -52,30 +39,11 @@ var current = "1"
         <a-cursor cursor="fuse: true; maxDistance: 30; timeout: 500" 
                   color="#2E3A87"
                   material="color: white; shader: flat">
-          <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="forwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
+          <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
         </a-cursor>
       </a-camera>
     </a-scene>
-    <script>
-    var prevControl = document.querySelector("#prevButton");
-prevControl.addEventListener("click", function (event) {
-    if(current == "2") {
-        var newPage = page1;
-        current = "1"
-        document.getElementById("page").setAttribute("bmfont-text", "text: " + newPage + " ; width: 800");
-    }
-  
-})
-
-var nextControl = document.querySelector("#nextButton");
-nextControl.addEventListener("click", function (event) {
-    if(current == "1") {
-        var newPage = page2;
-        current = "2"
-        document.getElementById("page").setAttribute("bmfont-text", "text: " + newPage + " ; width: 800");
-    }
-
-})
-    </script>
+    <!-- Where to put this? -->
+    <script src="main.js"></script>
   </body>
 </html>
